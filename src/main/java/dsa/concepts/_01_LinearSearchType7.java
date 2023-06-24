@@ -2,7 +2,7 @@ package dsa.concepts;
 
 import java.util.Arrays;
 
-public class LinearSearchType7 {
+public class _01_LinearSearchType7 {
 
     public static void main(String[] args) {
 

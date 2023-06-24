@@ -1,6 +1,6 @@
 package dsa.concepts;
 
-public class BinarySearch {
+public class _02_BinarySearch {
 
     public static void main(String[] args) {
 

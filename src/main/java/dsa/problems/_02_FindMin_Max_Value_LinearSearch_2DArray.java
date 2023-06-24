@@ -1,6 +1,6 @@
-package dsa.concepts;
+package dsa.problems;
 
-public class FindMin_Max_Value_LinearSearch_2DArray {
+public class _02_FindMin_Max_Value_LinearSearch_2DArray {
 
     public static void main(String[] args) {
 

@@ -1,6 +1,6 @@
 package dsa.concepts;
 
-public class LinearSearchType5 {
+public class _01_LinearSearchType5 {
 
     public static void main(String[] args) {
 

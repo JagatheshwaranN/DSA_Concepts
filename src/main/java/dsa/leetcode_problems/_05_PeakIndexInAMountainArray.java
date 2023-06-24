@@ -16,6 +16,7 @@ public class _05_PeakIndexInAMountainArray {
 
         int start = 0;
         int end = arr.length - 1;
+        // The reason for not using start <= end in a while, is it will enter into Infinite Loop.
         while(start < end){
             int mid = start + (end - start) / 2;
             if(arr[mid] > arr[mid+1]){

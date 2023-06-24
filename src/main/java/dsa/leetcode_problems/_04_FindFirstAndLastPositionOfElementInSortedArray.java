@@ -23,7 +23,7 @@ public class _04_FindFirstAndLastPositionOfElementInSortedArray {
         return result;
     }
 
-    private static int search(int[] arr, int target, boolean searchFirstOccurance){
+    private static int search(int[] arr, int target, boolean searchFirstOccurrence){
 
         int result = -1;
         int start = 0;
@@ -36,7 +36,7 @@ public class _04_FindFirstAndLastPositionOfElementInSortedArray {
                 start = mid + 1;
             }else{
                 result = mid;
-                if(searchFirstOccurance){
+                if(searchFirstOccurrence){
                     end = mid - 1;
                 }else{
                     start = mid + 1;

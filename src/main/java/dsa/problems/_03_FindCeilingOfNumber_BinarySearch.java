@@ -1,26 +1,26 @@
-package dsa.concepts;
+package dsa.problems;
 
-public class FindFloorOfNumber_BinarySearch {
+public class _03_FindCeilingOfNumber_BinarySearch {
 
     public static void main(String[] args) {
         int[] numbers = {2, 3, 5, 9, 14, 16, 18};
         int target = 15;
-        System.out.println(floorOfNumber(numbers, target));
+        System.out.println(ceilingOfNumber(numbers, target));
         target = 6;
-        System.out.println(floorOfNumber(numbers, target));
+        System.out.println(ceilingOfNumber(numbers, target));
         target = 10;
-        System.out.println(floorOfNumber(numbers, target));
-        target = 1;
-        System.out.println(floorOfNumber(numbers, target));
+        System.out.println(ceilingOfNumber(numbers, target));
+        target = 19;
+        System.out.println(ceilingOfNumber(numbers, target));
 
     }
 
-    private static int floorOfNumber(int[] arr, int target){
+    private static int ceilingOfNumber(int[] arr, int target){
 
         if(arr.length == 0)
             return -1;
 
-        if(target < arr[0])
+        if(target > arr[arr.length -1])
             return -1;
 
         int start = 0;
@@ -38,6 +38,6 @@ public class FindFloorOfNumber_BinarySearch {
                 start = mid + 1;
             }
         }
-        return end;
+        return start;
     }
 }

@@ -1,6 +1,6 @@
 package dsa.concepts;
 
-public class BinarySearch_OrderAgnostic {
+public class _02_BinarySearch_OrderAgnostic {
 
     public static void main(String[] args) {
 
