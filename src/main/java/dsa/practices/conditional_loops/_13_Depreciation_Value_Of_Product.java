@@ -2,7 +2,7 @@ package dsa.practices.conditional_loops;
 
 import java.util.Scanner;
 
-public class _13_Depreciate_Of_Product {
+public class _13_Depreciation_Value_Of_Product {
 
     public static void main(String[] args) {
 
