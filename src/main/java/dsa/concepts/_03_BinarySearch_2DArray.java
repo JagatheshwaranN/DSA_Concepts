@@ -1,8 +1,8 @@
-package dsa.problems;
+package dsa.concepts;
 
 import java.util.Arrays;
 
-public class _05_FindValue_BinarySearch_2DArray {
+public class _03_BinarySearch_2DArray {
 
     public static void main(String[] args) {
 
