@@ -6,9 +6,9 @@ public class _06_InsertionSort {
 
     public static void main(String[] args) {
 
-//        int[] arr1 = {3, 1, 5, 4, 2};
-//        insertionSort(arr1);
-//        System.out.println(Arrays.toString(arr1));
+        int[] arr1 = {3, 1, 5, 4, 2};
+        insertionSort(arr1);
+        System.out.println(Arrays.toString(arr1));
         int[] arr2 = {-3, 7, -5, 0, 2};
         insertionSort(arr2);
         System.out.println(Arrays.toString(arr2));
