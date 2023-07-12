@@ -21,11 +21,12 @@ public class _10_MissingNumber {
             int correctPosition = arr[i];
             if(arr[i] < arr.length && arr[i] != arr[correctPosition]) {
                 swapElements(arr, i, correctPosition);
+
             }else{
                 i++;
             }
         }
-
+        System.out.println(Arrays.toString(arr));
         for (int index = 0; index < arr.length; index++){
             if(arr[index] != index){
                 return index;
