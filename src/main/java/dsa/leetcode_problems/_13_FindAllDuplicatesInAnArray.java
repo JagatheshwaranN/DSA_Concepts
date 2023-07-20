@@ -36,6 +36,7 @@ public class _13_FindAllDuplicatesInAnArray {
         return result;
     }
 
+
     private static void swapElements(int[] arr, int first, int second) {
         int temp = arr[first];
         arr[first] = arr[second];
