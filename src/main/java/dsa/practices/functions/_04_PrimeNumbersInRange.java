@@ -16,18 +16,20 @@ public class _04_PrimeNumbersInRange {
 
     private static void findPrimeNumbersInRange(int start, int end) {
         boolean flag = false;
+        if(start < 2){
+            start = 2;
+        }
         for(int i = start; i <= end; i++){
-
-            for(int j = 2; j <= i/2; j++){
+            flag = false;
+            for(int j = 2; j < i; j++){
                 if(i % j == 0){
-                    System.out.println(i + " is not a prime number");
                     flag = true;
                     break;
                 }
             }
-
             if(flag == false){
-                System.out.println(i + " is a prime number");
+                //System.out.print(i + " is a prime number");
+                System.out.print(i + " ");
             }
         }
     }
