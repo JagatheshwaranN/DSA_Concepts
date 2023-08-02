@@ -10,9 +10,10 @@ public class _06_Find_UniqueElement_Array_Using_Bitwise_XOR_Operator {
     private static int findUniqueElement(int[] arr) {
         int uniqueElement = 0;
         for( int element : arr){
-            uniqueElement ^= element;
             System.out.println("UniqueElement at point : "+uniqueElement);
             System.out.println("Element at point : "+element);
+            uniqueElement ^= element;
+            System.out.println("UniqueElement after calculation : "+uniqueElement);
         }
         return uniqueElement;
     }
