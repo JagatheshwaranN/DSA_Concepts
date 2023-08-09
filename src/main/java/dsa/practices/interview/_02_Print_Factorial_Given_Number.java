@@ -10,16 +10,15 @@ public class _02_Print_Factorial_Given_Number {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number to find the factorial");
         long number = scanner.nextLong();
-        if(number <= 65){
+        if(number <= 59){
             findFactorial(number);
         }else{
             findBigFactorial(number);
         }
-
     }
 
     /**
-     * This method will work fine till number value 65. If the number is greater than 65.
+     * This method will work fine till number value 65. If the number is greater than 59.
      * It will not work as the long data type's capacity is not enough to hold the result.
      */
     private static void findFactorial(long number) {
@@ -41,5 +40,4 @@ public class _02_Print_Factorial_Given_Number {
         }
         System.out.println("The factorial of number "+ num+" is "+fact);
     }
-
 }
