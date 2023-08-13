@@ -2,7 +2,7 @@ package dsa.leetcode_problems;
 
 import java.util.Scanner;
 
-public class _18_Number_Of_Steps_To_Reduce_Number_To_Zero_Recursion {
+public class _18_Recursion_NumberOfStepsToReduceNumberToZero {
 
     public static void main(String[] args) {
 
