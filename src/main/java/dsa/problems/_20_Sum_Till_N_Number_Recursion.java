@@ -9,7 +9,7 @@ public class _20_Sum_Till_N_Number_Recursion {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number to find the sum till the number");
         int number = scanner.nextInt();
-        System.out.println("The sum of number till numbers "+number+" is "+findSum(number));
+        System.out.println("The sum of numbers till the number "+number+" is "+findSum(number));
     }
 
     private static int findSum(int number) {

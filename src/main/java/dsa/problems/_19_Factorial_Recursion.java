@@ -13,7 +13,7 @@ public class _19_Factorial_Recursion {
     }
 
     private static int findFact(int number) {
-        if(number <=1 ){
+        if(number <= 1 ){
             return 1;
         }
         return number * findFact(number - 1);
