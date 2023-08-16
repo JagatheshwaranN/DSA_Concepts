@@ -3,6 +3,7 @@ package dsa.problems;
 import java.util.ArrayList;
 
 public class _28_LinearSearch_All_Indexes_Recursion {
+
     public static void main(String[] args) {
 
         int[] arr = {1, 4, 5, 3, 7, 3, 9};
