@@ -7,7 +7,7 @@ public class _28_LinearSearch_All_Indexes_Recursion {
 
         int[] arr = {1, 4, 5, 3, 7, 3, 9};
         int target = 3;
-        ArrayList<Integer> result = findValueIndices(arr, target, 0, new ArrayList<Integer>());
+        ArrayList<Integer> result = findValueIndices(arr, target, 0, new ArrayList<>());
         System.out.println("The value "+target+" is found at indices "+result);
     }
     private static ArrayList<Integer> findValueIndices(int[] arr, int target, int index, ArrayList<Integer> list) {
