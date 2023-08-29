@@ -1,7 +1,6 @@
 package dsa.problems;
 
 public class _36_String_Operations_Recursion {
-
     public static void main(String[] args) {
 
         String result = "";
@@ -25,7 +24,6 @@ public class _36_String_Operations_Recursion {
             removeCharType1(result + ch, input.substring(1));
         }
     }
-
     private static String removeCharType2(String input) {
 
         if(input.isEmpty()){
@@ -38,7 +36,6 @@ public class _36_String_Operations_Recursion {
             return ch + removeCharType2(input.substring(1));
         }
     }
-
     private static String removeString(String input) {
 
         if(input.isEmpty()){
@@ -50,7 +47,6 @@ public class _36_String_Operations_Recursion {
             return input.charAt(0) + removeString(input.substring(1));
         }
     }
-
     private static String removeStringWithCond(String input) {
 
         if(input.isEmpty()){
@@ -62,6 +58,4 @@ public class _36_String_Operations_Recursion {
             return input.charAt(0) + removeStringWithCond(input.substring(1));
         }
     }
-
-
 }
