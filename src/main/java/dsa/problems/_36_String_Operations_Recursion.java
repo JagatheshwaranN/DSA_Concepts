@@ -11,51 +11,51 @@ public class _36_String_Operations_Recursion {
         System.out.println(removeStringWithCond("bcdapplefgh"));
         System.out.println(removeStringWithCond("bcdapplfgh"));
     }
-    private static void removeCharType1(String result, String input) {
+    private static void removeCharType1(String processed, String unprocessed) {
 
-        if(input.isEmpty()){
-            System.out.println(result);
+        if(unprocessed.isEmpty()){
+            System.out.println(processed);
             return;
         }
-        char ch = input.charAt(0);
+        char ch = unprocessed.charAt(0);
         if(ch == 'a'){
-            removeCharType1(result, input.substring(1));
+            removeCharType1(processed, unprocessed.substring(1));
         } else {
-            removeCharType1(result + ch, input.substring(1));
+            removeCharType1(processed + ch, unprocessed.substring(1));
         }
     }
-    private static String removeCharType2(String input) {
+    private static String removeCharType2(String unprocessed) {
 
-        if(input.isEmpty()){
+        if(unprocessed.isEmpty()){
             return "";
         }
-        char ch = input.charAt(0);
+        char ch = unprocessed.charAt(0);
         if(ch == 'a'){
-            return removeCharType2(input.substring(1));
+            return removeCharType2(unprocessed.substring(1));
         } else {
-            return ch + removeCharType2(input.substring(1));
+            return ch + removeCharType2(unprocessed.substring(1));
         }
     }
-    private static String removeString(String input) {
+    private static String removeString(String unprocessed) {
 
-        if(input.isEmpty()){
+        if(unprocessed.isEmpty()){
             return "";
         }
-        if(input.startsWith("apple")){
-            return removeString(input.substring(5));
+        if(unprocessed.startsWith("apple")){
+            return removeString(unprocessed.substring(5));
         } else {
-            return input.charAt(0) + removeString(input.substring(1));
+            return unprocessed.charAt(0) + removeString(unprocessed.substring(1));
         }
     }
-    private static String removeStringWithCond(String input) {
+    private static String removeStringWithCond(String unprocessed) {
 
-        if(input.isEmpty()){
+        if(unprocessed.isEmpty()){
             return "";
         }
-        if(input.startsWith("app") & !input.startsWith("apple")){
-            return removeStringWithCond(input.substring(3));
+        if(unprocessed.startsWith("app") & !unprocessed.startsWith("apple")){
+            return removeStringWithCond(unprocessed.substring(3));
         } else {
-            return input.charAt(0) + removeStringWithCond(input.substring(1));
+            return unprocessed.charAt(0) + removeStringWithCond(unprocessed.substring(1));
         }
     }
 }
