@@ -27,7 +27,7 @@ public class _01_PrimeNumber {
             }
             checker ++;
         }
-        if(flag == false){
+        if(!flag){
             System.out.println(input +" is a prime number");
         }
     }
