@@ -6,7 +6,6 @@ import java.util.Arrays;
 public class CrudOperation {
 
     public static void main() {
-
         int[] arr = new int[]{1, 5, 2, 8, 7, 3};
         System.out.println("===========================");
         System.out.println("*** Search Element ***");
