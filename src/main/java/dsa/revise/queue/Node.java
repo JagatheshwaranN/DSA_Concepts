@@ -1,4 +1,4 @@
-package dsa.revise.stack;
+package dsa.revise.queue;
 
 @SuppressWarnings("unused")
 public class Node {

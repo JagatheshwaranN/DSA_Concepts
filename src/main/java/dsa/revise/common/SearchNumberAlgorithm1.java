@@ -1,4 +1,4 @@
-package dsa.revise;
+package dsa.revise.common;
 
 @SuppressWarnings("ConstantValue")
 public class SearchNumberAlgorithm1 {

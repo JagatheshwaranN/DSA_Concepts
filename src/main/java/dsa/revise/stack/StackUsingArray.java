@@ -19,38 +19,37 @@ public class StackUsingArray {
         stackUsingArray.print();
         System.out.println(stackUsingArray.pop());
         stackUsingArray.print();
-
     }
 
-    boolean isEmpty(){
+    boolean isEmpty() {
         return (top < 0);
     }
 
-    boolean push(int data){
-        if(top >= MAX - 1){
+    boolean push(int data) {
+        if (top >= MAX - 1) {
             System.out.println("Stack Overflow");
             return false;
-        }else{
+        } else {
             stack[++top] = data;
             System.out.println(STR."\{data} pushed into Stack");
             return true;
         }
     }
 
-    int pop(){
-        if(top < 0){
+    int pop() {
+        if (top < 0) {
             System.out.println("Stack Underflow");
             return 0;
-        }else {
+        } else {
             int data = stack[top--];
             System.out.println(STR."\{data} removed from Stack");
             return data;
         }
     }
 
-    void print(){
+    void print() {
         System.out.print("Stack Elements :: ");
-        for(int i = 0; i <= top; i++){
+        for (int i = 0; i <= top; i++) {
             System.out.print(STR."\{stack[i]} ");
         }
         System.out.println();
