@@ -20,22 +20,76 @@ class DynamicArray {
     public void display() {
         if (size == 0) {
             System.out.println("List is Empty.");
-        }else {
+        } else {
             System.out.print("Elements in the list are :: ");
             for (int i = 0; i < size; i++) {
-                System.out.print(STR."\{array[i]} ");
+                System.out.print(array[i] + " ");
             }
+            System.out.println();
         }
     }
 
     public void insertAtPosition(int position, int value) {
-        if (size == capacity)
+        if (position < 0 || position > size) {
+            System.out.println("Position :: " + position);
+            System.out.println("Size :: " + size);
+            System.out.println("Invalid Position");
+            return;
+        }
+        if (size == capacity) {
             expandArray();
+        }
         for (int i = size - 1; i >= position; i--) {
             array[i + 1] = array[i];
         }
         array[position] = value;
         size++;
+    }
+
+    public void deleteAtPosition(int position) {
+        if (position < 0 || position > size) {
+            System.out.println("Invalid Position");
+            return;
+        }
+        for (int i = position + 1; i < size; i++) {
+            array[i - 1] = array[i];
+        }
+        size--;
+        if (capacity > INITIAL_CAPACITY && capacity > size * 3) {
+            shrinkArray();
+        }
+    }
+
+    public void updateAtPosition(int position, int value) {
+        if (position < 0 || position > size) {
+            System.out.println("Invalid Position");
+            return;
+        }
+        array[position] = value;
+    }
+
+    public void insertAtBegin(int value) {
+        if (size == capacity) {
+            expandArray();
+        }
+        if (size == 0 && array.length == 0)
+            array[size] = value;
+        for (int i = size - 1; i >= 0; i--) {
+            array[i + 1] = array[i];
+        }
+        array[0] = value;
+        size++;
+    }
+
+    public void deleteAtBegin() {
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
     }
 
     public void insertAtEnd(int value) {
@@ -44,18 +98,57 @@ class DynamicArray {
         array[size++] = value;
     }
 
-    public void deleteAtPosition(int position) {
-        for (int i = position + 1; i < size; i++) {
-            array[i-1] = array[i];
+    public void deleteAtEnd() {
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
         }
         size--;
-        if(capacity > INITIAL_CAPACITY && capacity > size * 3)
-            shrinkArray();
     }
 
+    public void getValue(int position) {
+        if (position < 0 || position > size) {
+            System.out.println("Invalid Position");
+            return;
+        }
+        System.out.println(array[position]);
+    }
 
-    public int listSize() {
-        return array.length;
+    public void searchValue(int value) {
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            if (array[i] == value) {
+                System.out.println("Value found at position: " + i);
+                break;
+            }
+        }
+    }
+
+    public void verifyValuePresent(int value) {
+        boolean flag = false;
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            if (array[i] == value) {
+                flag = true;
+                break;
+            }
+        }
+        System.out.println(flag);
+    }
+
+    public void clearList() {
+        if (size == 0) {
+            System.out.println("List is already empty");
+            return;
+        }
+        if (size != 0 && array.length > 0)
+            size = 0;
     }
 
     private void expandArray() {
@@ -67,7 +160,6 @@ class DynamicArray {
         capacity /= 2;
         array = Arrays.copyOf(array, capacity);
     }
-
 
 }
 
@@ -109,15 +201,51 @@ public class DynamicArrayDemo {
                     value = scanner.nextInt();
                     dynamicArray.insertAtPosition(position, value);
                     break;
+                case 3:
+                    System.out.println("Enter the position (Position starts from 0)");
+                    position = scanner.nextInt();
+                    dynamicArray.deleteAtPosition(position);
+                    break;
+                case 4:
+                    System.out.println("Enter the position (Position starts from 0)");
+                    position = scanner.nextInt();
+                    System.out.println("Enter the data");
+                    value = scanner.nextInt();
+                    dynamicArray.updateAtPosition(position, value);
+                    break;
+                case 5:
+                    System.out.println("Enter the data");
+                    value = scanner.nextInt();
+                    dynamicArray.insertAtBegin(value);
+                    break;
+                case 6:
+                    dynamicArray.deleteAtBegin();
+                    break;
                 case 7:
                     System.out.println("Enter the data");
                     value = scanner.nextInt();
                     dynamicArray.insertAtEnd(value);
                     break;
                 case 8:
+                    dynamicArray.deleteAtEnd();
+                    break;
+                case 9:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
-                    dynamicArray.deleteAtPosition(position);
+                    dynamicArray.getValue(position);
+                    break;
+                case 10:
+                    System.out.println("Enter the data");
+                    value = scanner.nextInt();
+                    dynamicArray.searchValue(value);
+                    break;
+                case 11:
+                    System.out.println("Enter the data");
+                    value = scanner.nextInt();
+                    dynamicArray.verifyValuePresent(value);
+                    break;
+                case 12:
+                    dynamicArray.clearList();
                     break;
                 case 13:
                     System.exit(0);
@@ -128,3 +256,4 @@ public class DynamicArrayDemo {
     }
 
 }
+
