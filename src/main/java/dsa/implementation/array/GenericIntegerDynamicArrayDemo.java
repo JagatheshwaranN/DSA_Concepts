@@ -1,17 +1,17 @@
-package dsa.implementation;
+package dsa.implementation.array;
 
 import java.util.Scanner;
 
 @SuppressWarnings("ALL")
-public class GenericStringDynamicArrayDemo {
+public class GenericIntegerDynamicArrayDemo {
 
     public static void main() {
 
-        GenericDynamicArray<String> dynamicArray = new GenericDynamicArray<>();
+        GenericDynamicArray<Integer> dynamicArray = new GenericDynamicArray<>();
         Scanner scanner = new Scanner(System.in);
         int choice;
         int position;
-        String value;
+        int value;
         while (true) {
             System.out.println("\n--------------- List Menu ---------------\n");
             System.out.println("1. Display List");
@@ -39,7 +39,7 @@ public class GenericStringDynamicArrayDemo {
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     System.out.println("Enter the data");
-                    value = scanner.next();
+                    value = scanner.nextInt();
                     dynamicArray.insertAtPosition(position, value);
                     break;
                 case 3:
@@ -51,12 +51,12 @@ public class GenericStringDynamicArrayDemo {
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     System.out.println("Enter the data");
-                    value = scanner.next();
+                    value = scanner.nextInt();
                     dynamicArray.updateAtPosition(position, value);
                     break;
                 case 5:
                     System.out.println("Enter the data");
-                    value = scanner.next();
+                    value = scanner.nextInt();
                     dynamicArray.insertAtBegin(value);
                     break;
                 case 6:
@@ -64,7 +64,7 @@ public class GenericStringDynamicArrayDemo {
                     break;
                 case 7:
                     System.out.println("Enter the data");
-                    value = scanner.next();
+                    value = scanner.nextInt();
                     dynamicArray.insertAtEnd(value);
                     break;
                 case 8:
@@ -77,12 +77,12 @@ public class GenericStringDynamicArrayDemo {
                     break;
                 case 10:
                     System.out.println("Enter the data");
-                    value = scanner.next();
+                    value = scanner.nextInt();
                     dynamicArray.searchValue(value);
                     break;
                 case 11:
                     System.out.println("Enter the data");
-                    value = scanner.next();
+                    value = scanner.nextInt();
                     dynamicArray.verifyValuePresent(value);
                     break;
                 case 12:
@@ -108,3 +108,4 @@ public class GenericStringDynamicArrayDemo {
     }
 
 }
+
