@@ -31,8 +31,6 @@ class DynamicArray {
 
     public void insertAtPosition(int position, int value) {
         if (position < 0 || position > size) {
-            System.out.println("Position :: " + position);
-            System.out.println("Size :: " + size);
             System.out.println("Invalid Position");
             return;
         }
