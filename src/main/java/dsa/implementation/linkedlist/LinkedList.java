@@ -1,7 +1,24 @@
 package dsa.implementation.linkedlist;
 
 
-public class LinkedList {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+@SuppressWarnings("ALL")
+public class LinkedList<T> implements Iterable<T> {
+
+    class Node {
+
+        T data;
+
+        Node nextNode;
+
+        Node(T data) {
+            this.data = data;
+            nextNode = null;
+        }
+
+    }
 
     Node head;
 
@@ -10,18 +27,20 @@ public class LinkedList {
     }
 
     public void display() {
-        Node temp = head;
         if (head == null) {
-            System.out.println("List is empty");
+            System.out.println("List is empty.");
+        } else {
+            StringBuilder stringBuilder = new StringBuilder("Elements in the list are :: ");
+            Node temp = head;
+            while (temp != null) {
+                stringBuilder.append(temp.data).append(" ");
+                temp = temp.nextNode;
+            }
+            System.out.println(stringBuilder.toString());
         }
-        while (temp != null) {
-            System.out.print(STR."\{temp.data} ");
-            temp = temp.nextNode;
-        }
-        System.out.println();
     }
 
-    public void insertAtBegin(int value) {
+    public void insertAtBegin(T value) {
         Node newNode = new Node(value);
         if (head == null) {
             head = newNode;
@@ -31,140 +50,180 @@ public class LinkedList {
         }
     }
 
-    public void updateAtBegin(int value) {
+    public void updateAtBegin(T value) {
         if (head == null) {
-            throw new IndexOutOfBoundsException("Deletion Attempted On Empty List");
+            throw new IndexOutOfBoundsException("Update attempted on the empty list.");
         }
         head.data = value;
     }
 
     public void deleteAtBegin() {
         if (head == null) {
-            throw new IndexOutOfBoundsException("Deletion Attempted On Empty List");
+            throw new IndexOutOfBoundsException("Deletion attempted on the empty list.");
         }
         head = head.nextNode;
     }
 
-    public void insertAtPosition(int position, int value) {
+    public void insertAtPosition(int position, T value) {
         Node newNode = new Node(value);
         Node temp = head;
+        if (position < 0 || position > length()) {
+            throw new IndexOutOfBoundsException("Invalid position.");
+        }
         if (position == 0) {
             insertAtBegin(value);
             return;
         }
-        for (int i = 1; i < position; i++) {
+        for (int i = 1; i < position && temp != null; i++) {
             temp = temp.nextNode;
-            if (temp == null)
-                throw new IndexOutOfBoundsException("Invalid Position");
+        }
+        if (temp == null) {
+            throw new IndexOutOfBoundsException("Invalid position.");
         }
         newNode.nextNode = temp.nextNode;
         temp.nextNode = newNode;
     }
 
-    public void updateAtPosition(int position, int value) {
+    public void updateAtPosition(int position, T value) {
         Node temp = head;
+        if (position < 0 || position >= length()) {
+            throw new IndexOutOfBoundsException("Invalid position.");
+        }
         if (head == null) {
-            throw new IndexOutOfBoundsException("Update Attempted On Empty List");
+            throw new IndexOutOfBoundsException("Update attempted on the empty list.");
         }
         if (position == 0) {
             updateAtBegin(value);
-        }
-        for (int i = 1; i <= position; i++) {
-            temp = temp.nextNode;
+            return;
+        } else {
+            for (int i = 1; i <= position && temp != null; i++) {
+                temp = temp.nextNode;
+            }
+            if (temp == null) {
+                throw new IndexOutOfBoundsException("Invalid position.");
+            }
         }
         temp.data = value;
     }
 
     public void deleteAtPosition(int position) {
-        Node temp = head;
-        Node prev = null;
+        if (position < 0 || position >= length()) {
+            throw new IndexOutOfBoundsException("Invalid position.");
+        }
         if (head == null) {
-            throw new IndexOutOfBoundsException("Deletion Attempted On Empty List");
+            throw new IndexOutOfBoundsException("Deletion attempted on the empty list.");
         }
         if (position == 0) {
             deleteAtBegin();
             return;
+        } else {
+            Node temp = head;
+            Node prev = null;
+            for (int i = 1; i <= position && temp != null; i++) {
+                prev = temp;
+                temp = temp.nextNode;
+            }
+            if (temp == null) {
+                throw new IndexOutOfBoundsException("Invalid position.");
+            }
+            prev.nextNode = temp.nextNode;
         }
-        for (int i = 1; i <= position; i++) {
-            prev = temp;
-            temp = temp.nextNode;
-        }
-        assert prev != null;
-        prev.nextNode = temp.nextNode;
     }
 
-    public void insertAtEnd(int value) {
+    public void insertAtEnd(T value) {
         Node newNode = new Node(value);
-        Node temp = head;
-        Node prev = null;
-        while (temp != null) {
-            prev = temp;
-            temp = temp.nextNode;
+        if (head == null) {
+            head = newNode;
+            return;
+        } else {
+            Node temp = head;
+            Node prev = null;
+            while (temp != null) {
+                prev = temp;
+                temp = temp.nextNode;
+            }
+            prev.nextNode = newNode;
         }
-        assert prev != null;
-        prev.nextNode = newNode;
     }
 
-    public void updateAtEnd(int value) {
+    public void updateAtEnd(T value) {
+        if (head == null) {
+            throw new IndexOutOfBoundsException("Update attempted on the empty list.");
+        }
         Node temp = head;
         Node prev = null;
         while (temp != null) {
             prev = temp;
             temp = temp.nextNode;
         }
-        assert prev != null;
         prev.data = value;
     }
 
     public void deleteAtEnd() {
-        Node temp = head;
-        Node prev = null;
-        for (int i = 1; i < length(); i++) {
-            prev = temp;
-            temp = temp.nextNode;
+        if (head == null) {
+            throw new IndexOutOfBoundsException("Deletion attempted on the empty list.");
         }
-        assert prev != null;
-        prev.nextNode = null;
+        if (head.nextNode == null) {
+            head = null;
+            return;
+        } else {
+            Node temp = head;
+//            Node prev = null;
+//            for (int i = 1; i < length(); i++) {
+//                prev = temp;
+//                temp = temp.nextNode;
+//            }
+//            prev.nextNode = null;
+            while(temp.nextNode.nextNode!= null){
+                temp = temp.nextNode;
+            }
+            temp.nextNode = null;
+        }
     }
 
     public void getValue(int position) {
+        if(position < 0 || position >= length()){
+            throw new IndexOutOfBoundsException("Invalid position.");
+        }
         Node temp = head;
-        for (int i = 1; i <= position; i++) {
+        for (int i = 0; i < position && temp != null; i++) {
             temp = temp.nextNode;
         }
-        System.out.println(temp.data);
+        if (temp == null) {
+            throw new IndexOutOfBoundsException("Invalid position.");
+        }
+        System.out.println("Position " + position + " has value: " + temp.data);
     }
 
-    public void searchValue(int value) {
+    public void searchValue(T value) {
         Node temp = head;
-        for (int i = 1; i <= length(); i++) {
-            temp = temp.nextNode;
-            if (temp.data == value) {
-                System.out.println(i);
-                break;
+        int position = 0;
+        while (temp != null) {
+            if (temp.data == value || temp.data.equals(value)) {
+                System.out.println("Value " + value + " has found at position: " + position);
+                return;
             }
+            temp = temp.nextNode;
+            position++;
         }
+        System.out.println("Value not found in the list.");
     }
 
-    public void verifyValuePresent(int value) {
+    public void verifyValuePresent(T value) {
         Node temp = head;
-        boolean flag = false;
-        for (int i = 1; i <= length(); i++) {
-            assert temp != null;
-            temp = temp.nextNode;
-            if (temp != null) {
-                if (temp.data == value) {
-                    flag = true;
-                    break;
-                }
+        while (temp != null) {
+            if (temp.data == value || temp.data.equals(value)) {
+                System.out.println(value + " - Is present in the list?: " + true);
+                return;
             }
+            temp = temp.nextNode;
         }
-        System.out.println(flag);
+        System.out.println(value + " - Is present in the list?: " + false);
     }
 
     public void clearList() {
         if (head == null) {
-            System.out.println("List is already empty");
+            System.out.println("List is already empty.");
         }
         head = null;
     }
@@ -179,33 +238,26 @@ public class LinkedList {
         return count;
     }
 
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.insertAtBegin(9);
-        list.insertAtBegin(5);
-        list.display();
-        list.insertAtPosition(1, 7);
-        list.display();
-        list.insertAtPosition(0, 2);
-        list.display();
-        list.deleteAtPosition(1);
-        list.display();
-        list.updateAtPosition(1, 17);
-        list.display();
-        list.updateAtBegin(12);
-        list.display();
-        list.insertAtEnd(20);
-        list.display();
-        list.updateAtEnd(25);
-        list.display();
-        System.out.println(list.length());
-        list.deleteAtEnd();
-        list.display();
-        list.getValue(1);
-        list.searchValue(9);
-        list.verifyValuePresent(17);
-        list.clearList();
-        list.display();
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            Node temp = head;
+
+            @Override
+            public boolean hasNext() {
+                return temp != null;
+            }
+
+            @Override
+            public T next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                T value = temp.data;
+                temp = temp.nextNode;
+                return value;
+            }
+        };
     }
 
 }
