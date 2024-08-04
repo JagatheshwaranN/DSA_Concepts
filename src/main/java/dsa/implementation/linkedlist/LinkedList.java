@@ -168,12 +168,6 @@ public class LinkedList<T> implements Iterable<T> {
             return;
         } else {
             Node temp = head;
-//            Node prev = null;
-//            for (int i = 1; i < length(); i++) {
-//                prev = temp;
-//                temp = temp.nextNode;
-//            }
-//            prev.nextNode = null;
             while(temp.nextNode.nextNode!= null){
                 temp = temp.nextNode;
             }

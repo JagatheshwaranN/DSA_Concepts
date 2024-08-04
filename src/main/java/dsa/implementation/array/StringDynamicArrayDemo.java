@@ -3,11 +3,11 @@ package dsa.implementation.array;
 import java.util.Scanner;
 
 @SuppressWarnings("ALL")
-public class GenericStringDynamicArrayDemo {
+public class StringDynamicArrayDemo {
 
     public static void main() {
 
-        GenericDynamicArray<String> dynamicArray = new GenericDynamicArray<>();
+        DynamicArray<String> dynamicArray = new DynamicArray<>();
         Scanner scanner = new Scanner(System.in);
         int choice;
         int position;
@@ -15,19 +15,21 @@ public class GenericStringDynamicArrayDemo {
         while (true) {
             System.out.println("\n--------------- List Menu ---------------\n");
             System.out.println("1. Display List");
-            System.out.println("2. Insert At Specific Position");
-            System.out.println("3. Delete At Specific Position");
-            System.out.println("4. Update At Specific Position");
-            System.out.println("5. Insert At Beginning");
-            System.out.println("6. Delete At Beginning");
-            System.out.println("7. Insert At End");
-            System.out.println("8. Delete At End");
-            System.out.println("9. Get Value At Index");
-            System.out.println("10. Search Value");
-            System.out.println("11. Check List Contains Value");
-            System.out.println("12. Clear List");
-            System.out.println("13. Display List Using Iterator");
-            System.out.println("14. Exit");
+            System.out.println("2. Insert At Beginning");
+            System.out.println("3. Update At Beginning");
+            System.out.println("4. Delete At Beginning");
+            System.out.println("5. Insert At Specific Position");
+            System.out.println("6. Update At Specific Position");
+            System.out.println("7. Delete At Specific Position");
+            System.out.println("8. Insert At End");
+            System.out.println("9. Update At End");
+            System.out.println("10. Delete At End");
+            System.out.println("11. Get Value At Index");
+            System.out.println("12. Search Value");
+            System.out.println("13. Check List Contains Value");
+            System.out.println("14. Display List Using Iterator");
+            System.out.println("15. Clear List");
+            System.out.println("16. Exit");
             System.out.println("\n-----------------------------------------\n");
             System.out.println("Enter Your Choice: \t");
             choice = scanner.nextInt();
@@ -36,59 +38,66 @@ public class GenericStringDynamicArrayDemo {
                     dynamicArray.display();
                     break;
                 case 2:
+                    System.out.println("Enter the data");
+                    value = scanner.next();
+                    dynamicArray.insertAtBegin(value);
+                    break;
+                case 3:
+                    System.out.println("Enter the data");
+                    value = scanner.next();
+                    dynamicArray.updateAtBegin(value);
+                    break;
+                case 4:
+                    dynamicArray.deleteAtBegin();
+                    break;
+                case 5:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     System.out.println("Enter the data");
                     value = scanner.next();
                     dynamicArray.insertAtPosition(position, value);
                     break;
-                case 3:
-                    System.out.println("Enter the position (Position starts from 0)");
-                    position = scanner.nextInt();
-                    dynamicArray.deleteAtPosition(position);
-                    break;
-                case 4:
+                case 6:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     System.out.println("Enter the data");
                     value = scanner.next();
                     dynamicArray.updateAtPosition(position, value);
                     break;
-                case 5:
-                    System.out.println("Enter the data");
-                    value = scanner.next();
-                    dynamicArray.insertAtBegin(value);
-                    break;
-                case 6:
-                    dynamicArray.deleteAtBegin();
-                    break;
                 case 7:
+                    System.out.println("Enter the position (Position starts from 0)");
+                    position = scanner.nextInt();
+                    dynamicArray.deleteAtPosition(position);
+                    break;
+                case 8:
                     System.out.println("Enter the data");
                     value = scanner.next();
                     dynamicArray.insertAtEnd(value);
                     break;
-                case 8:
+                case 9:
+                    System.out.println("Enter the data");
+                    value = scanner.next();
+                    dynamicArray.updateAtEnd(value);
+                    break;
+                case 10:
                     dynamicArray.deleteAtEnd();
                     break;
-                case 9:
+                case 11:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     dynamicArray.getValue(position);
                     break;
-                case 10:
+                case 12:
                     System.out.println("Enter the data");
                     value = scanner.next();
                     dynamicArray.searchValue(value);
                     break;
-                case 11:
+                case 13:
                     System.out.println("Enter the data");
                     value = scanner.next();
                     dynamicArray.verifyValuePresent(value);
                     break;
-                case 12:
-                    dynamicArray.clearList();
-                    break;
-                case 13:
+                case 14:
                     if (dynamicArray.size == 0) {
                         System.out.println("List is Empty.");
                     } else {
@@ -99,7 +108,10 @@ public class GenericStringDynamicArrayDemo {
                         System.out.println();
                     }
                     break;
-                case 14:
+                case 15:
+                    dynamicArray.clearList();
+                    break;
+                case 16:
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice..!!");
