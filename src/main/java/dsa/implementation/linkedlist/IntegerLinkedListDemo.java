@@ -28,8 +28,9 @@ public class IntegerLinkedListDemo {
             System.out.println("12. Search Value");
             System.out.println("13. Check LinkedList Contains Value");
             System.out.println("14. Display LinkedList Using Iterator");
-            System.out.println("15. Clear LinkedList");
-            System.out.println("16. Exit");
+            System.out.println("15. Reverse LinkedList");
+            System.out.println("16. Clear LinkedList");
+            System.out.println("17. Exit");
             System.out.println("\n-----------------------------------------\n");
             System.out.println("Enter Your Choice: \t");
             choice = scanner.nextInt();
@@ -109,9 +110,12 @@ public class IntegerLinkedListDemo {
                     }
                     break;
                 case 15:
-                    list.clearList();
+                    list.revers();
                     break;
                 case 16:
+                    list.clearList();
+                    break;
+                case 17:
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice..!!");

@@ -168,7 +168,7 @@ public class LinkedList<T> implements Iterable<T> {
             return;
         } else {
             Node temp = head;
-            while(temp.nextNode.nextNode!= null){
+            while (temp.nextNode.nextNode != null) {
                 temp = temp.nextNode;
             }
             temp.nextNode = null;
@@ -176,7 +176,7 @@ public class LinkedList<T> implements Iterable<T> {
     }
 
     public void getValue(int position) {
-        if(position < 0 || position >= length()){
+        if (position < 0 || position >= length()) {
             throw new IndexOutOfBoundsException("Invalid position.");
         }
         Node temp = head;
@@ -230,6 +230,20 @@ public class LinkedList<T> implements Iterable<T> {
             count++;
         }
         return count;
+    }
+
+    public void revers() {
+        Node prev = null;
+        Node current = head;
+        Node next = head.nextNode;
+        while (current != null) {
+            next = current.nextNode;
+            current.nextNode = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        display();
     }
 
     @Override
