@@ -1,4 +1,4 @@
-package dsa.implementation.linkedlist;
+package dsa.implementation.linkedlist.singly;
 
 import java.util.Scanner;
 
