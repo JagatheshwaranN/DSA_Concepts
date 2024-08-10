@@ -32,28 +32,33 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         tail = null;
     }
 
-    public void display() {
+    public void displayDoublyList() {
+        display();
+        displayReverse();
+    }
+
+    private void display() {
         if (head == null) {
             System.out.println("List is empty.");
         } else {
-            StringBuilder stringBuilder = new StringBuilder("Elements in the list are :: ");
+            StringBuilder stringBuilder = new StringBuilder("Normal Order -  Elements in the list are :: ");
             Node temp = head;
             while (temp != null) {
-                stringBuilder.append(temp.data).append(" ");
+                stringBuilder.append(temp.data).append("\t");
                 temp = temp.nextNode;
             }
             System.out.println(stringBuilder.toString());
         }
     }
 
-    public void displayReverse() {
+    private void displayReverse() {
         if (head == null) {
             System.out.println("List is empty.");
         } else {
-            StringBuilder stringBuilder = new StringBuilder("Elements in the list are :: ");
+            StringBuilder stringBuilder = new StringBuilder("Reverse Order - Elements in the list are :: ");
             Node temp = tail;
             while (temp != null) {
-                stringBuilder.append(temp.data).append(" ");
+                stringBuilder.append(temp.data).append("\t");
                 temp = temp.prevNode;
             }
             System.out.println(stringBuilder.toString());
@@ -83,6 +88,11 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             throw new IndexOutOfBoundsException("Deletion attempted on the empty list.");
         }
         head = head.nextNode;
+        if (head == null) {
+            tail = null;
+        } else {
+            head.prevNode = null;
+        }
     }
 
     public void insertAtPosition(int position, T value) {
@@ -97,9 +107,9 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         }
         for (int i = 1; i < position && temp != null; i++) {
             temp = temp.nextNode;
-        }
-        if (temp == null) {
-            throw new IndexOutOfBoundsException("Invalid position.");
+            if (temp == null) {
+                throw new IndexOutOfBoundsException("Invalid position.");
+            }
         }
         newNode.nextNode = temp.nextNode;
         newNode.prevNode = temp;
@@ -125,9 +135,9 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         } else {
             for (int i = 1; i <= position && temp != null; i++) {
                 temp = temp.nextNode;
-            }
-            if (temp == null) {
-                throw new IndexOutOfBoundsException("Invalid position.");
+                if (temp == null) {
+                    throw new IndexOutOfBoundsException("Invalid position.");
+                }
             }
         }
         temp.data = value;
@@ -149,11 +159,16 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             for (int i = 1; i <= position && temp != null; i++) {
                 prev = temp;
                 temp = temp.nextNode;
-            }
-            if (temp == null) {
-                throw new IndexOutOfBoundsException("Invalid position.");
+                if (temp == null) {
+                    throw new IndexOutOfBoundsException("Invalid position.");
+                }
             }
             prev.nextNode = temp.nextNode;
+            if (temp.nextNode == null) {
+                tail = prev;
+            } else {
+                temp.nextNode.prevNode = prev;
+            }
         }
     }
 
@@ -169,7 +184,11 @@ public class DoublyLinkedList<T> implements Iterable<T> {
                 prev = temp;
                 temp = temp.nextNode;
             }
+            if (prev == tail) {
+                tail = newNode;
+            }
             prev.nextNode = newNode;
+            newNode.prevNode = prev;
         }
     }
 
@@ -183,7 +202,10 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             prev = temp;
             temp = temp.nextNode;
         }
-        prev.data = value;
+        if (prev == tail) {
+            tail.data = value;
+        }
+        //prev.data = value;
     }
 
     public void deleteAtEnd() {
@@ -198,7 +220,11 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             while (temp.nextNode.nextNode != null) {
                 temp = temp.nextNode;
             }
+            //temp.nextNode.prevNode = null;
+            //tail = temp.prevNode;
+            //temp.nextNode = null;
             temp.nextNode = null;
+            tail = temp;
         }
     }
 
@@ -209,9 +235,9 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         Node temp = head;
         for (int i = 0; i < position && temp != null; i++) {
             temp = temp.nextNode;
-        }
-        if (temp == null) {
-            throw new IndexOutOfBoundsException("Invalid position.");
+            if (temp == null) {
+                throw new IndexOutOfBoundsException("Invalid position.");
+            }
         }
         System.out.println("Position " + position + " has value: " + temp.data);
     }
@@ -243,10 +269,11 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     }
 
     public void clearList() {
-        if (head == null) {
+        if (head == null && tail == null) {
             System.out.println("List is already empty.");
         }
         head = null;
+        tail = null;
     }
 
     public int length() {
@@ -257,20 +284,6 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             count++;
         }
         return count;
-    }
-
-    public void revers() {
-        Node prev = null;
-        Node current = head;
-        Node next = head.nextNode;
-        while (current != null) {
-            next = current.nextNode;
-            current.nextNode = prev;
-            prev = current;
-            current = next;
-        }
-        head = prev;
-        display();
     }
 
     @Override
@@ -295,15 +308,76 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         };
     }
 
+    public Iterator<T> reverseIterator() {
+        return new Iterator<T>() {
+            Node temp = tail;
+
+            @Override
+            public boolean hasNext() {
+                return temp != null;
+            }
+
+            @Override
+            public T next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                T value = temp.data;
+                temp = temp.prevNode;
+                return value;
+            }
+        };
+    }
+
     public static void main(String[] args) {
 
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        //1
         list.insertAtBegin(3);
         list.insertAtBegin(7);
         list.insertAtBegin(9);
-        list.insertAtPosition(3, 11);
-        list.display();
-        list.displayReverse();
+        list.displayDoublyList();
+//        //8
+//        list.displayReverse();
+//        list.insertAtEnd(50);
+//        list.display();
+//        list.displayReverse();
+//        //9
+//        list.updateAtEnd(55);
+//        list.display();
+//        list.displayReverse();
+//        //10
+//        list.deleteAtEnd();
+//        list.display();
+//        list.displayReverse();
+//        list.getValue(1);
+//        list.searchValue(3);
+//        list.verifyValuePresent(7);
+//        list.clearList();
+//        list.display();
+//        list.displayReverse();
+//
+//        //6
+//        list.updateAtBegin(20);
+//        list.display();
+//        list.displayReverse();
+//        //2
+//        list.deleteAtBegin();
+//        list.display();
+//        list.displayReverse();
+//        //7
+//        list.insertAtPosition(2, 11);
+//        //3
+//        list.display();
+//        list.displayReverse();
+//        //4
+//        list.deleteAtPosition(2);
+//        list.display();
+//        list.displayReverse();
+//        //5
+//        list.deleteAtBegin();
+//        list.display();
+//        list.displayReverse();
     }
 }
 
