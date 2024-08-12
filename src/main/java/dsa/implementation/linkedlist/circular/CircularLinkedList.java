@@ -107,16 +107,52 @@ public class CircularLinkedList<T> {
         }
     }
 
-    public void verifyValuePresent(T value){
+    public void verifyValuePresent(T value) {
         Node temp = last.nextNode;
-        do{
-            if(temp.data == value || temp.data.equals(value)){
+        do {
+            if (temp.data == value || temp.data.equals(value)) {
                 System.out.println(value + " - Is present in the list?: " + true);
                 return;
             }
             temp = temp.nextNode;
-        } while(temp != last.nextNode);
+        } while (temp != last.nextNode);
         System.out.println(value + " - Is present in the list?: " + false);
+    }
+
+    public void insertAfter(T value, T newValue){
+        if (last == null) {
+            throw new IndexOutOfBoundsException("Insertion attempted on the empty list.");
+        }
+        Node temp = last.nextNode;
+        Node prev = null;
+        Node newNode = new Node(newValue);
+        do {
+            prev = temp;
+            temp = temp.nextNode;
+            if(temp.data == value || temp.data.equals(value)){
+                newNode.nextNode = temp.nextNode;
+                temp.nextNode = newNode;
+            }
+        }while(temp != last.nextNode);
+
+    }
+
+    public void deleteValue(T value) {
+        if (last == null) {
+            throw new IndexOutOfBoundsException("Deletion attempted on the empty list.");
+        }
+        Node temp = last.nextNode;
+        Node prev = null;
+        do {
+            prev = temp;
+            temp = temp.nextNode;
+            if (temp.data == value || temp.data.equals(value)) {
+                if (temp == last) {
+                    last = prev;
+                }
+                prev.nextNode = temp.nextNode;
+            }
+        } while (temp != last.nextNode);
     }
 
     public void clearList() {
@@ -152,25 +188,6 @@ public class CircularLinkedList<T> {
             last.nextNode = last.nextNode.nextNode;
         }
         return temp;
-    }
-
-    public static void main(String[] args) {
-        CircularLinkedList<String> list = new CircularLinkedList<>();
-        list.insertAtBegin("A");
-        list.insertAtBegin("B");
-        list.insertAtBegin("C");
-        list.display();
-        list.updateAtBegin("CC");
-        list.display();
-        list.updateAtEnd("AA");
-        System.out.println(list.size());
-        list.verifyValuePresent("BB");
-        list.deleteAtBegin();
-        list.display();
-        list.deleteAtEnd();
-//        list.deleteValue("B");
-//        list.insertAfter("CC");
-        list.display();
     }
 
 }
