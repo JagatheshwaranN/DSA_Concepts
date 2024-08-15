@@ -1,4 +1,4 @@
-package dsa.implementation.array;
+package dsa.implementation.concepts.array;
 
 import java.util.Arrays;
 import java.util.Iterator;

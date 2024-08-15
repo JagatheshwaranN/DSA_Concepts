@@ -1,4 +1,4 @@
-package dsa.implementation.linkedlist.singly;
+package dsa.implementation.concepts.linkedlist.singly;
 
 
 import java.util.Iterator;

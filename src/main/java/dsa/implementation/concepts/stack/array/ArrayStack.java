@@ -1,4 +1,4 @@
-package dsa.implementation.stack;
+package dsa.implementation.concepts.stack.array;
 
 
 @SuppressWarnings("ALL")

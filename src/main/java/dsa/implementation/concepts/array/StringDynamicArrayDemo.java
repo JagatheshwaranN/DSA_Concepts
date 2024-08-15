@@ -1,20 +1,20 @@
-package dsa.implementation.linkedlist.singly;
+package dsa.implementation.concepts.array;
 
 import java.util.Scanner;
 
 @SuppressWarnings("ALL")
-public class IntegerLinkedListDemo {
+public class StringDynamicArrayDemo {
 
     public static void main() {
 
-        LinkedList<Integer> list = new LinkedList<Integer>();
+        DynamicArray<String> dynamicArray = new DynamicArray<>();
         Scanner scanner = new Scanner(System.in);
         int choice;
         int position;
-        int value;
+        String value;
         while (true) {
             System.out.println("\n--------------- List Menu ---------------\n");
-            System.out.println("1. Display LinkedList");
+            System.out.println("1. Display List");
             System.out.println("2. Insert At Beginning");
             System.out.println("3. Update At Beginning");
             System.out.println("4. Delete At Beginning");
@@ -26,96 +26,92 @@ public class IntegerLinkedListDemo {
             System.out.println("10. Delete At End");
             System.out.println("11. Get Value At Index");
             System.out.println("12. Search Value");
-            System.out.println("13. Check LinkedList Contains Value");
-            System.out.println("14. Display LinkedList Using Iterator");
-            System.out.println("15. Reverse LinkedList");
-            System.out.println("16. Clear LinkedList");
-            System.out.println("17. Exit");
+            System.out.println("13. Check List Contains Value");
+            System.out.println("14. Display List Using Iterator");
+            System.out.println("15. Clear List");
+            System.out.println("16. Exit");
             System.out.println("\n-----------------------------------------\n");
             System.out.println("Enter Your Choice: \t");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    list.display();
+                    dynamicArray.display();
                     break;
                 case 2:
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.insertAtBegin(value);
+                    value = scanner.next();
+                    dynamicArray.insertAtBegin(value);
                     break;
                 case 3:
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.updateAtBegin(value);
+                    value = scanner.next();
+                    dynamicArray.updateAtBegin(value);
                     break;
                 case 4:
-                    list.deleteAtBegin();
+                    dynamicArray.deleteAtBegin();
                     break;
                 case 5:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.insertAtPosition(position, value);
+                    value = scanner.next();
+                    dynamicArray.insertAtPosition(position, value);
                     break;
                 case 6:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.updateAtPosition(position, value);
+                    value = scanner.next();
+                    dynamicArray.updateAtPosition(position, value);
                     break;
                 case 7:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
-                    list.deleteAtPosition(position);
+                    dynamicArray.deleteAtPosition(position);
                     break;
                 case 8:
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.insertAtEnd(value);
+                    value = scanner.next();
+                    dynamicArray.insertAtEnd(value);
                     break;
                 case 9:
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.updateAtEnd(value);
+                    value = scanner.next();
+                    dynamicArray.updateAtEnd(value);
                     break;
                 case 10:
-                    list.deleteAtEnd();
+                    dynamicArray.deleteAtEnd();
                     break;
                 case 11:
                     System.out.println("Enter the position (Position starts from 0)");
                     position = scanner.nextInt();
-                    list.getValue(position);
+                    dynamicArray.getValue(position);
                     break;
                 case 12:
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.searchValue(value);
+                    value = scanner.next();
+                    dynamicArray.searchValue(value);
                     break;
                 case 13:
                     System.out.println("Enter the data");
-                    value = scanner.nextInt();
-                    list.verifyValuePresent(value);
+                    value = scanner.next();
+                    dynamicArray.verifyValuePresent(value);
                     break;
                 case 14:
-                    if (list.length() == 0) {
+                    if (dynamicArray.size == 0) {
                         System.out.println("List is Empty.");
                     } else {
                         System.out.print("Elements in the list are :: ");
-                        for (Object data : list) {
+                        for (Object data : dynamicArray) {
                             System.out.print(STR."\{data} ");
                         }
                         System.out.println();
                     }
                     break;
                 case 15:
-                    list.revers();
+                    dynamicArray.clearList();
                     break;
                 case 16:
-                    list.clearList();
-                    break;
-                case 17:
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice..!!");

@@ -1,13 +1,13 @@
-package dsa.implementation.stack;
+package dsa.implementation.concepts.stack.linkedlist;
 
 import java.util.Scanner;
 
 @SuppressWarnings("ALL")
-public class IntegerArrayStackDemo {
+public class IntegerStackLinkedListDemo {
 
     public static void main(String[] args) {
 
-        ArrayStack<Integer> arrayStack = new ArrayStack<>();
+        StackLinkedList<Integer> arrayStack = new StackLinkedList<>();
         Scanner scanner = new Scanner(System.in);
         int choice;
         int value;

@@ -1,4 +1,4 @@
-package dsa.implementation.linkedlist.circular;
+package dsa.implementation.concepts.linkedlist.circular;
 
 @SuppressWarnings("ALL")
 public class CircularLinkedList<T> {

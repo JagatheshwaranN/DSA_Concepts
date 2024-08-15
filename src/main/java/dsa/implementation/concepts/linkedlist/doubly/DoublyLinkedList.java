@@ -1,4 +1,4 @@
-package dsa.implementation.linkedlist.doubly;
+package dsa.implementation.concepts.linkedlist.doubly;
 
 
 import java.util.Iterator;
