@@ -1,29 +1,49 @@
 package dsa.implementation.concepts.queue.array.type1;
 
 @SuppressWarnings("ALL")
-public class QueueArray {
+public class QueueArray<T> {
 
     public static final int MAX_SIZE = 30;
-    int[] queue;
+    T[] queue;
     int front, rear;
 
     public QueueArray() {
-        queue = new int[MAX_SIZE];
+        queue = (T[]) new Object[MAX_SIZE];
         front = -1;
         rear = -1;
     }
 
-    public void enqueue(int value) {
+    public void display() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue is empty.");
+        } else {
+            System.out.print("The Queue elements are :: ");
+            for (int i = 0; i <= rear; i++) {
+                System.out.print(queue[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void enqueue(T value) {
         if (rear == MAX_SIZE - 1) {
             throw new IndexOutOfBoundsException("Queue is full.");
         } else {
-            if(front == -1)
+            if (front == -1)
                 front++;
             queue[++rear] = value;
         }
     }
 
-    public int dequeue() {
+    public T firstQueueElement() {
+        if (front == -1 || front > rear) {
+            throw new IndexOutOfBoundsException("Queue is empty.");
+        } else {
+            return queue[front];
+        }
+    }
+
+    public T dequeue() {
         if (front == -1 || front > rear) {
             throw new IndexOutOfBoundsException("Queue is empty.");
         } else {
@@ -31,14 +51,17 @@ public class QueueArray {
         }
     }
 
-    public static void main(String[] args) {
-        QueueArray queueArray = new QueueArray();
-        queueArray.enqueue(5);
-        queueArray.enqueue(7);
-        queueArray.enqueue(9);
-        System.out.println("Dequeued :: "+queueArray.dequeue());
-        System.out.println("Dequeued :: "+queueArray.dequeue());
-        System.out.println("Dequeued :: "+queueArray.dequeue());
-        System.out.println("Dequeued :: "+queueArray.dequeue());
+    public boolean isEmpty() {
+        return front == -1;
     }
+
+    public void clearQueue() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue is already empty.");
+        } else {
+            front = -1;
+            rear = -1;
+        }
+    }
+
 }
