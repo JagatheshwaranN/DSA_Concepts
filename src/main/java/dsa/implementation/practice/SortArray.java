@@ -11,9 +11,9 @@ public class SortArray {
     }
 
     private static void sortGivenArray(int[] input) {
-        for(int i = 0; i < input.length; i++){
-            for(int j = i+1; j < input.length; j++){
-                if(input[i] > input[j]){
+        for (int i = 0; i < input.length; i++) {
+            for (int j = i + 1; j < input.length; j++) {
+                if (input[i] > input[j]) {
                     int temp = input[i];
                     input[i] = input[j];
                     input[j] = temp;
