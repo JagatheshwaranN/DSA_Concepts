@@ -31,4 +31,33 @@ public class MergeSort {
         return join;
     }
 
+    public static void mergeSortInPlace(int[] input, int start, int end) {
+        if (end - start == 1)
+            return;
+        int mid = (start + end) / 2;
+        mergeSortInPlace(input, start, mid);
+        mergeSortInPlace(input, mid, end);
+        mergeInPlace(input, start, mid, end);
+    }
+
+    private static void mergeInPlace(int[] arr, int start, int mid, int end) {
+        int[] join = new int[end - start];
+        int i = start, j = mid, k = 0;
+        while (i < mid && j < end) {
+            if (arr[i] < arr[j])
+                join[k++] = arr[i++];
+            else
+                join[k++] = arr[j++];
+        }
+        while (i < mid) {
+            join[k++] = arr[i++];
+        }
+        while (j < end) {
+            join[k++] = arr[j++];
+        }
+        for (k = 0; k < join.length; k++) {
+            arr[start + k] = join[k];
+        }
+    }
+
 }
