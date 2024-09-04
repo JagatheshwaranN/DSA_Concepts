@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Find the largest / Maximum element in an array.
+ * Find the largest / maximum element in an array.
  *
  * Input: arr[] = {5, 9, 8, 6, 1}
  * Output: 9
@@ -45,8 +45,8 @@ public class MaxElementInArray {
     // TC: O(n)
     // SC: O(1)
     private static void findLargestElementByStream(int[] input) {
-        int largeElement = Arrays.stream(input).max().getAsInt();
-        System.out.println(largeElement);
+        int largestElement = Arrays.stream(input).max().getAsInt();
+        System.out.println(largestElement);
     }
 
     // TC: O(nlogn)
