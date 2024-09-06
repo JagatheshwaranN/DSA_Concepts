@@ -15,11 +15,16 @@ import java.util.Arrays;
  * Using copyOf() method of Arrays class
  * Using copyOfRange() method of Arrays class
  */
+@SuppressWarnings("All")
 public class ArrayCopy {
 
     public static void main(String[] args) {
         int[] numbers = {2, 3, 4, 5, 7};
+        System.out.println(Arrays.toString(numbers));
         arrayCopyUsingLoop(numbers);
+        arrayCopyUsingClone(numbers);
+        arrayCopyUsingSystemArray(numbers);
+        arrayCopyUsingCopyOf(numbers);
     }
 
     // TC: O(n)
@@ -29,9 +34,25 @@ public class ArrayCopy {
         for(int i = 0; i < input.length; i++) {
             newArray[i] = input[i];
         }
-        System.out.println(Arrays.toString(input));
         System.out.println(Arrays.toString(newArray));
     }
 
+    private static void arrayCopyUsingClone(int[] input) {
+        int[] newArray;
+        newArray = input.clone();
+        System.out.println(Arrays.toString(newArray));
+    }
+
+    private static void arrayCopyUsingSystemArray(int[] input) {
+        int[] newArray = new int[input.length];
+        System.arraycopy(input, 0, newArray, 0, 5);
+        System.out.println(Arrays.toString(newArray));
+    }
+
+    private static void arrayCopyUsingCopyOf(int[] input) {
+        int[] newArray;
+        newArray = Arrays.copyOf(input, 5);
+        System.out.println(Arrays.toString(newArray));
+    }
 
 }
