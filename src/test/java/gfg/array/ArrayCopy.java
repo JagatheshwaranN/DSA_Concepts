@@ -25,6 +25,7 @@ public class ArrayCopy {
         arrayCopyUsingClone(numbers);
         arrayCopyUsingSystemArray(numbers);
         arrayCopyUsingCopyOf(numbers);
+        arrayCopyUsingCopyOfRange(numbers);
     }
 
     // TC: O(n)
@@ -52,6 +53,11 @@ public class ArrayCopy {
     private static void arrayCopyUsingCopyOf(int[] input) {
         int[] newArray;
         newArray = Arrays.copyOf(input, 5);
+        System.out.println(Arrays.toString(newArray));
+    }
+
+    private static void arrayCopyUsingCopyOfRange(int[] input) {
+        int[] newArray = Arrays.copyOfRange(input, 0, 5);
         System.out.println(Arrays.toString(newArray));
     }
 
