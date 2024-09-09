@@ -29,8 +29,8 @@ public class AddArrayMatrix {
         addMatrix(numbers3, numbers4);
     }
 
-    // TC: O(n2)
-    // SC: O(n2)
+    // TC: O(n * m)
+    // SC: O(n * m)
     private static void addMatrix(int[][] input1, int[][] input2) {
         printMatrix(input1);
         printMatrix(input2);
