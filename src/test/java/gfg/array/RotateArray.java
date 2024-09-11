@@ -23,7 +23,7 @@ public class RotateArray {
     }
 
     /**
-     * The time complexity of this program is also O(n), where n is the length of the input
+     * The time complexity of this program is O(n), where n is the length of the input
      * array. This is because the program iterates through the array twice, once to copy the
      * elements from position to the end to the temporary array, and once to copy the elements
      * from 0 to position-1 to the temporary array. The final System.arraycopy call also takes
