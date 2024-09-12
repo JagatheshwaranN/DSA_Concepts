@@ -1,4 +1,4 @@
-package gfg.array;
+package gfg.array.basic;
 
 /**
  * Find the Normal and Trace of a Matrix.

@@ -1,4 +1,4 @@
-package gfg.array;
+package gfg.array.basic;
 
 /**
  * Find the transpose of the given matrix

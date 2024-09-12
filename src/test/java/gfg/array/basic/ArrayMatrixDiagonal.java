@@ -1,7 +1,7 @@
-package gfg.array;
+package gfg.array.basic;
 
 /**
- * Find the sum of the  diagonals of the matrix array.
+ * Find the sum of the diagonals of the matrix array.
  * <p>
  * Input: {
  *                 {1, 2, 3, 4},
@@ -11,10 +11,10 @@ package gfg.array;
  * Output: Principal Diagonal: 12
  *         Secondary Diagonal: 17
  * <p>
- * The principal diagonal is constituted by the elements a00, a11, a22, a33, and
+ * The principal diagonal is calculated by the elements a00, a11, a22, a33, and
  * the row-column condition for the principal diagonal is: row = column
  * <p>
- * However, the secondary diagonal is constituted by the elements a03, a12, a21,
+ * However, the secondary diagonal is calculated by the elements a03, a12, a21,
  * a30, and the row-column condition for the Secondary diagonal is: row + column = N – 1
  */
 @SuppressWarnings("All")
@@ -65,8 +65,8 @@ public class ArrayMatrixDiagonal {
      * The time complexity of the code is still O(n), as it only iterates through the
      * elements on the principal and secondary diagonals, which are both of length n.
      * <p>
-     * The space complexity of the improved code is also O(1), as it only uses a constant
-     * amount of additional space to store the variables principalDiagonal and secondaryDiagonal.
+     * The space complexity of the code is O(1), as it only uses a constan amount of
+     * additional space to store the variables principalDiagonal and secondaryDiagonal.
      */
     private static void findMatrixDiagonalAdvanced(int[][] input) {
         int principalDiagonal = 0;
