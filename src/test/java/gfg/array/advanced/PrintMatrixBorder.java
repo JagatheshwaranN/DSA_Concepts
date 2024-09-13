@@ -1,5 +1,17 @@
 package gfg.array.advanced;
 
+/**
+ * Print the boundary elements of the matrix.
+ * <p>
+ * Input: {
+ *         {1, 2, 3},
+ *         {4, 5, 6},
+ *         {7, 8, 9}};
+ * Output: {
+ *          {1, 2, 3},
+ *          {4     6},
+ *          {7, 8, 9}};
+ */
 @SuppressWarnings("All")
 public class PrintMatrixBorder {
 
