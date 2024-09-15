@@ -38,7 +38,6 @@ public class PrintMatrixBorder {
      * input array itself, regardless of the size of the input matrix. The space required
      * to store these variables does not depend on the size of the input.
      */
-
     private static void printBorder(int[][] input) {
         if(input.length == 0) {
             System.out.println("Input array is null.");
