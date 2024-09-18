@@ -29,8 +29,15 @@ public class AddArrayMatrix {
         addMatrix(numbers3, numbers4);
     }
 
-    // TC: O(n * m)
-    // SC: O(n * m)
+    /**
+     * The time complexity of the code is O(n * m), where n is the number of rows
+     * and m is the number of columns in the matrices. This is because the nested
+     * for loops iterate through each element of the input matrices once to perform
+     * the addition.
+     * <p>
+     * The space complexity is also O(n * m) due to the creation of the result
+     * matrix, which has the same dimensions as the input matrices.
+     */
     private static void addMatrix(int[][] input1, int[][] input2) {
         printMatrix(input1);
         printMatrix(input2);
