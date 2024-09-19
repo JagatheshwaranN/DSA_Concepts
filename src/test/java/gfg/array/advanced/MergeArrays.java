@@ -52,7 +52,7 @@ public class MergeArrays {
     /**
      * The time complexity of the code is O(n + m), where n is the length of input1
      * and m is the length of input2. This is because the System.arraycopy method
-     * copies elements in O(k) time, where k is the number of elements being copied.
+        * copies elements in O(k) time, where k is the number of elements being copied.
      * Thus, copying both arrays takes O(n + m) time.
      * <p>
      * The space complexity is O(n + m) due to the creation of the result array,
