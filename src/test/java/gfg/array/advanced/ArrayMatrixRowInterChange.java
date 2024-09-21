@@ -20,7 +20,7 @@ public class ArrayMatrixRowInterChange {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        changeListAndRowInMatrix(numbers);
+        changeFirstAndLastRowInMatrix(numbers);
     }
 
     /**
@@ -31,7 +31,7 @@ public class ArrayMatrixRowInterChange {
      * The space complexity is O(1), as the algorithm only uses a constant amount of extra space
      * (the temporary variable `temp` for swapping the row elements).
      */
-    private static void changeListAndRowInMatrix(int[][] input) {
+    private static void changeFirstAndLastRowInMatrix(int[][] input) {
         printMatrix(input);
         if(input.length == 0) {
             System.out.println("Input array is null.");
