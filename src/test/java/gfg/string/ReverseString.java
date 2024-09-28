@@ -70,7 +70,7 @@ public class ReverseString {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer(input);
-        System.out.println(stringBuffer.reverse()); // O(n) time, O(n) space
+        System.out.println(stringBuffer.reverse().toString()); // O(n) time, O(n) space
     }
 
     // Time Complexity: O(n) - The reverse method iterates over the string once to reverse it.
@@ -81,7 +81,7 @@ public class ReverseString {
             return;
         }
         StringBuilder stringBuilder = new StringBuilder(input);
-        System.out.println(stringBuilder.reverse()); // O(n) time, O(n) space
+        System.out.println(stringBuilder.reverse().toString()); // O(n) time, O(n) space
     }
 
     // Time Complexity: O(n) - The loop iterates over the byte array to reverse it.
