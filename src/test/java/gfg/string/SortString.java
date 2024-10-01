@@ -12,9 +12,11 @@ public class SortString {
         sortStringUsingCustomSort(value);
     }
 
-    // Time Complexity: O(n^2) - The bubble sort implementation has a nested loop
-    // where n is the length of the string, leading to n * (n-1) / 2 comparisons.
-    // Space Complexity: O(n) - A character array of size n is created.
+    /**
+     * Time Complexity: O(n^2) - The bubble sort implementation has a nested loop
+     * where n is the length of the string, leading to n * (n-1) / 2 comparisons.
+     * Space Complexity: O(n) - A character array of size n is created.
+     */
     private static void sortString(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -40,9 +42,11 @@ public class SortString {
         System.out.println(new String(inputCharArray)); // O(n) - Converting the char array to a string
     }
 
-    // Time Complexity: O(n log n) - Arrays.sort() uses a Dual-Pivot Quicksort, which has
-    // an average time complexity of O(n log n) where n is the length of the array.
-    // Space Complexity: O(n) - A new character array of size n is created.
+    /**
+     * Time Complexity: O(n log n) - Arrays.sort() uses a Dual-Pivot Quicksort, which has
+     * an average time complexity of O(n log n) where n is the length of the array.
+     * Space Complexity: O(n) - A new character array of size n is created.
+     */
     private static void sortStringUsingSort(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -54,10 +58,12 @@ public class SortString {
         System.out.println(Arrays.toString(charArray)); // O(n) - Printing the sorted array
     }
 
-    // Time Complexity: O(n log n) - Arrays.sort() with a custom comparator still uses
-    // Dual-Pivot Quicksort, so sorting has an average time complexity of O(n log n).
-    // Space Complexity: O(n) - The custom sort creates several objects and arrays,
-    // including the Character array, StringBuffer, and the original string.
+    /**
+     * Time Complexity: O(n log n) - Arrays.sort() with a custom comparator still uses
+     * Dual-Pivot Quicksort, so sorting has an average time complexity of O(n log n).
+     * Space Complexity: O(n) - The custom sort creates several objects and arrays,
+     * including the Character array, StringBuffer, and the original string.
+     */
     private static void sortStringUsingCustomSort(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");

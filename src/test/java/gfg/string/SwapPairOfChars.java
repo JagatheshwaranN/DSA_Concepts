@@ -23,8 +23,10 @@ public class SwapPairOfChars {
         swapCharsUsingStringBuffer(value2);
     }
 
-    // Time Complexity: O(n) - The loop iterates over half of the input string (n/2).
-    // Space Complexity: O(n) - A new char array of size n is created to store swapped characters.
+    /**
+     * Time Complexity: O(n) - The loop iterates over half of the input string (n/2).
+     * Space Complexity: O(n) - A new char array of size n is created to store swapped characters.
+     */
     private static void swapCharsUsingLoop(String input) {
         if (input == null || input.isEmpty()) {
             System.out.println("Input is null.");
@@ -39,8 +41,10 @@ public class SwapPairOfChars {
         System.out.println(new String(inputCharArray));
     }
 
-    // Time Complexity: O(n) - The loop iterates over half of the input string (n/2).
-    // Space Complexity: O(n) - StringBuffer is used with size proportional to the input string.
+    /**
+     * Time Complexity: O(n) - The loop iterates over half of the input string (n/2).
+     * Space Complexity: O(n) - StringBuffer is used with size proportional to the input string.
+     */
     private static void swapCharsUsingStringBuffer(String input) {
         if (input == null || input.isEmpty()) {
             System.out.println("Input is null.");

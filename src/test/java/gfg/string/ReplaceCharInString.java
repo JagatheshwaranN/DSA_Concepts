@@ -12,10 +12,12 @@ public class ReplaceCharInString {
         replaceCharUsingSBDSetChar(value, index, ch);
     }
 
-    // Time Complexity: O(n) - Substring operations create new strings, where n is the
-    // length of the input string.
-    // Space Complexity: O(n) - Two new strings are created (one for each substring),
-    // resulting in extra space usage proportional to the length of the input.
+    /**
+     * Time Complexity: O(n) - Substring operations create new strings, where n is the
+     * length of the input string.
+     * Space Complexity: O(n) - Two new strings are created (one for each substring),
+     * resulting in extra space usage proportional to the length of the input.
+     */
     private static void replaceCharUsingSubString(String input, int target, char val) {
         if (input.isEmpty()) {
             System.out.println("Input is empty.");
@@ -25,10 +27,12 @@ public class ReplaceCharInString {
         System.out.println(input);
     }
 
-    // Time Complexity: O(n) - Creating a StringBuffer from the input string takes O(n),
-    // but modifying the character using setCharAt is O(1).
-    // Space Complexity: O(n) - A new StringBuffer is created, which requires space
-    // proportional to the length of the input string.
+    /**
+     * Time Complexity: O(n) - Creating a StringBuffer from the input string takes O(n),
+     * but modifying the character using setCharAt is O(1).
+     * Space Complexity: O(n) - A new StringBuffer is created, which requires space
+     * proportional to the length of the input string.
+     */
     private static void replaceCharUsingSBFSetChar(String input, int target, char val) {
         if (input.isEmpty()) {
             System.out.println("Input is empty.");
@@ -39,10 +43,12 @@ public class ReplaceCharInString {
         System.out.println(stringBuffer);
     }
 
-    // Time Complexity: O(n) - Creating a StringBuilder from the input string takes O(n),
-    // but modifying the character using setCharAt is O(1).
-    // Space Complexity: O(n) - A new StringBuilder is created, which requires space
-    // proportional to the length of the input string.
+    /**
+     * Time Complexity: O(n) - Creating a StringBuilder from the input string takes O(n),
+     * but modifying the character using setCharAt is O(1).
+     * Space Complexity: O(n) - A new StringBuilder is created, which requires space
+     * proportional to the length of the input string.
+     */
     private static void replaceCharUsingSBDSetChar(String input, int target, char val) {
         if (input.isEmpty()) {
             System.out.println("Input is empty.");

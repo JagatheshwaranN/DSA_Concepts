@@ -29,10 +29,12 @@ public class ReverseString {
         reverseStringUsingStack(value);
     }
 
-    // Time Complexity: O(n) - The loop iterates over the string in reverse, processing each
-    // character once.
-    // Space Complexity: O(n) - A new string is created and continuously appended with
-    // characters.
+    /**
+     * Time Complexity: O(n) - The loop iterates over the string in reverse, processing each
+     * character once.
+     * Space Complexity: O(n) - A new string is created and continuously appended with
+     * characters.
+     */
     private static void reverseStringUsingCharAt(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -45,10 +47,12 @@ public class ReverseString {
         System.out.println(reverse);
     }
 
-    // Time Complexity: O(n) - The loop iterates over the input array in reverse, and String
-    // concatenation occurs.
-    // Space Complexity: O(n) - A new char array and string are created, taking space proportional
-    // to the input size.
+    /**
+     * Time Complexity: O(n) - The loop iterates over the input array in reverse, and String
+     * concatenation occurs.
+     * Space Complexity: O(n) - A new char array and string are created, taking space proportional
+     * to the input size.
+     */
     private static void reverseStringUsingToCharArray(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -62,8 +66,10 @@ public class ReverseString {
         System.out.println(reverse);
     }
 
-    // Time Complexity: O(n) - The reverse method iterates over the string once to reverse it.
-    // Space Complexity: O(n) - A new reversed string is created, proportional to the input size.
+    /**
+     * Time Complexity: O(n) - The reverse method iterates over the string once to reverse it.
+     * Space Complexity: O(n) - A new reversed string is created, proportional to the input size.
+     */
     private static void reverseStringUsingStringBuffer(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -73,8 +79,10 @@ public class ReverseString {
         System.out.println(stringBuffer.reverse().toString()); // O(n) time, O(n) space
     }
 
-    // Time Complexity: O(n) - The reverse method iterates over the string once to reverse it.
-    // Space Complexity: O(n) - A new reversed string is created, proportional to the input size.
+    /**
+     * Time Complexity: O(n) - The reverse method iterates over the string once to reverse it.
+     * Space Complexity: O(n) - A new reversed string is created, proportional to the input size.
+     */
     private static void reverseStringUsingStringBuilder(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -84,8 +92,10 @@ public class ReverseString {
         System.out.println(stringBuilder.reverse().toString()); // O(n) time, O(n) space
     }
 
-    // Time Complexity: O(n) - The loop iterates over the byte array to reverse it.
-    // Space Complexity: O(n) - Two byte arrays (original and reversed) and a new string are created.
+    /**
+     * Time Complexity: O(n) - The loop iterates over the byte array to reverse it.
+     * Space Complexity: O(n) - Two byte arrays (original and reversed) and a new string are created.
+     */
     private static void reverseStringUsingBytes(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -99,9 +109,11 @@ public class ReverseString {
         System.out.println(new String(reverse)); // O(n) to create a new string
     }
 
-    // Time Complexity: O(n) - The list is populated and reversed in O(n) time.
-    // Space Complexity: O(n) - A list and a new char array of size n are used to store the input
-    // and the reversed string.
+    /**
+     * Time Complexity: O(n) - The list is populated and reversed in O(n) time.
+     * Space Complexity: O(n) - A list and a new char array of size n are used to store the input
+     * and the reversed string.
+     */
     private static void reverseStringUsingList(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");
@@ -120,9 +132,11 @@ public class ReverseString {
         System.out.println();
     }
 
-    // Time Complexity: O(n) - The stack is populated and then processed in O(n) time.
-    // Space Complexity: O(n) - The stack uses O(n) space to store the characters, and a new
-    // string is created for the reverse.
+    /**
+     * Time Complexity: O(n) - The stack is populated and then processed in O(n) time.
+     * Space Complexity: O(n) - The stack uses O(n) space to store the characters, and a new
+     * string is created for the reverse.
+     */
     private static void reverseStringUsingStack(String input) {
         if (input.isEmpty()) {
             System.out.println("Input is null.");

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Find the given string is pangram.
+ * Find the given string is pangram or not.
  * <p>
  * Input1: The quick brown fox jumps over the lazy dog
  * Output1: true
