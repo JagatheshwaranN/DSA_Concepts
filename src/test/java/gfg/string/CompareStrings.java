@@ -19,6 +19,7 @@ import java.util.Objects;
  * Using Objects.equals()
  * Using compareTo()
  * Using contentEquals()
+ * Using userdefined method
  */
 @SuppressWarnings("All")
 public class CompareStrings {
@@ -28,6 +29,8 @@ public class CompareStrings {
         String value2 = new String("Java");
         String value3 = new String("java");
         String value4 = value1;
+        String value5 = new String("Program");
+        String value6 = new String("JavaProgram");
         compareStringsUsingEqualToOps(value1, value2);
         compareStringsUsingEqualToOps(value1, value3);
         compareStringsUsingEqualToOps(value1, value4);
@@ -41,6 +44,21 @@ public class CompareStrings {
         compareStringsUsingCompareTo(value1, value3);
         compareStringsUsingContentEquals(value1, value2);
         compareStringsUsingContentEquals(value1, value3);
+
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value1,
+                value2));
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value1,
+                value3));
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value1,
+                value4));
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value1,
+                value5));
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value5,
+                value1));
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value5,
+                value6));
+        System.out.println(compareStringsLexicoGraphicallyUsingOwn(value1,
+                value6));
     }
 
     /**
@@ -141,6 +159,39 @@ public class CompareStrings {
             System.out.println(input1 + " and " + input2 + " are equal.");
         } else {
             System.out.println(input1 + " and " + input2 + " are not equal.");
+        }
+    }
+
+    /**
+     * Compares two strings lexicographically using custom logic.
+     *
+     * Time Complexity: O(min(n, m))
+     * - where n is the length of input1 and m is the length of input2.
+     * - In the worst case, the loop iterates over the smaller length of the two strings.
+     * - Each character comparison is O(1), so the overall complexity is determined by the minimum length of the strings.
+     *
+     * Space Complexity: O(1)
+     * - No additional data structures are used apart from a few primitive variables.
+     * - Hence, space complexity is constant.
+     */
+    private static int compareStringsLexicoGraphicallyUsingOwn(String input1, String input2) {
+        if (input1 == null || input2 == null || input1.isEmpty() || input2.isEmpty()) {
+            System.out.println("Anyone of inputs is null.");
+            return -1;
+        }
+        for (int i = 0; i < input1.length() && i < input2.length(); i++) {
+            if ((int) input1.charAt(i) == (int) input2.charAt(i)) {
+                continue;
+            } else {
+                return (int) input1.charAt(i) - (int) input2.charAt(i);
+            }
+        }
+        if (input1.length() < input2.length()) {
+            return input1.length() - input2.length();
+        } else if (input1.length() > input2.length()) {
+            return input1.length() - input2.length();
+        } else {
+            return 0;
         }
     }
 
