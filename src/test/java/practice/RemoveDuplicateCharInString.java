@@ -7,7 +7,6 @@ public class RemoveDuplicateCharInString {
     public static void main(String[] args) {
         String input = "Java Program";
         removeDuplicate(input);
-        demo();
     }
 
     private static void removeDuplicate(String input) {
@@ -25,12 +24,6 @@ public class RemoveDuplicateCharInString {
             }
         }
         System.out.println(String.valueOf(Arrays.copyOf(inputCharArr, index)));
-    }
-
-    public static void demo(){
-        for(int j = 9; j < 9; j++){
-            System.out.println(j);
-        }
     }
 
 }
