@@ -1,15 +1,27 @@
 package gfg.math;
 
+/**
+ * Find whether the given number is prime or not.
+ * <p>
+ * Input: 5
+ * Output: 5 is a prime number
+ * Input: 4
+ * Output: 4 is not a prime number
+ * <p>
+ * Using loop execution n times
+ * Using loop execution square root times
+ */
 @SuppressWarnings("All")
 public class PrimeNumber {
 
     public static void main(String[] args) {
         int number = 3;
         checkPrimeForNTimes(number);
+        checkPrimeForSquareRootTimes(number);
     }
 
     /**
-     * Time Complexity: O(n) - Loop runs at most n-2 times (where n is the value of input)
+     * Time Complexity: O(n) - The loop runs at most n/2 times (where n is the value of input)
      * Space Complexity: O(1) - Only primitive variables (i and input) are used
      */
     private static void checkPrimeForNTimes(int input) {
@@ -25,9 +37,9 @@ public class PrimeNumber {
             System.out.println(input + " is not a prime number");
             return;
         }
-        // Time Complexity: O(n) - Loop runs at most n-2 times (where n is the value of input)
+        // Time Complexity: O(n/2) = O(n) - Loop runs at most n/2 times (where n is the value of input)
         // Space Complexity: O(1) - Only primitive variables (i and input) are used
-        for (int i = 2; i < input; i++) {
+        for (int i = 2; i <= input / 2; i++) {
             if (input % i == 0) {
                 System.out.println(input + " is not a prime number");
                 return;
@@ -35,6 +47,32 @@ public class PrimeNumber {
         }
         System.out.println(input + " is a prime number");
     }
+
+    /**
+     * The Idea Behind the Optimization:
+     * =================================
+     * In the code, the value input / 2 is used as an upper limit in the inner for loop to
+     * check if a number x is prime. The reason is simple: a non-prime number will always
+     * have a factor that is less than or equal to half of the number (except for 1).
+     *
+     * Here's the explanation:
+     * Definition of Prime: A prime number is a number greater than 1 that has no divisors
+     * other than 1 and itself. For example, 7 is prime because it's only divisible by 1 and 7,
+     * while 6 is not prime because it's divisible by 1, 2, 3, and 6.
+     *
+     * Why x / 2?: When checking if a number x is divisible by any number, you only need to
+     * check up to x / 2. This is because:
+     *
+     * If x has a divisor larger than x / 2, the corresponding pair (smaller divisor) would
+     * have already been checked.
+     *
+     * For example, if you're checking whether 10 is divisible by any number, after checking
+     * 2, 3, 4, and 5 (which are all ≤ 10 / 2), there's no need to check numbers greater than 5.
+     *
+     * Efficiency: This makes the check faster. If you were to check all the way up to x - 1,
+     * it would add unnecessary iterations. So, by limiting the loop to x / 2, you're optimizing
+     * the process.
+     */
 
     /**
      * Time Complexity: O(√n) - The loop runs at most √n times
