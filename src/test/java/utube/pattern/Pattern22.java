@@ -2,14 +2,19 @@ package utube.pattern;
 
 /**
  * Output:
- * *********
- *  *     *
- *   *   *
- *    * *
- *     *
+ * **********
+ * ****  ****
+ * ***    ***
+ * **      **
+ * *        *
+ * *        *
+ * **      **
+ * ***    ***
+ * ****  ****
+ * **********
  */
 @SuppressWarnings("All")
-public class Pattern18 {
+public class Pattern22 {
 
     public static void main(String[] args) {
         int[] numbers = {3, 5, 10};
@@ -23,16 +28,13 @@ public class Pattern18 {
             System.out.println("Input is Zero.");
             return;
         }
-        for (int row = input; row >= 1; row--) {
-            for(int col = 1; col <= input - row; col++) {
-                System.out.print(" ");
-            }
-            for (int col = 1; col <= (row * 2) - 1; col++) {
-                if (col == 1 || col == (row * 2) - 1 || row == input) {
+        for (int row = 1; row <= input * 2; row++) {
+            int rowChange = row > input ? (input * 2) - (row - 1) : row;
+            for (int col = 1; col <= input * 2; col++) {
+                if (col <= input - rowChange + 1 || col > input + rowChange - 1)
                     System.out.print("*");
-                }else{
+                else
                     System.out.print(" ");
-                }
             }
             System.out.println();
         }
