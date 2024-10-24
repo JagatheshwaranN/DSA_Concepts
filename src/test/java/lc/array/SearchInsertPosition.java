@@ -22,20 +22,39 @@ package lc.array;
 public class SearchInsertPosition {
 
     public static void main(String[] args) {
-        int[] numbers = {1,3,5,6};
+        int[] numbers = {1, 3, 5, 6};
         int target = 5;
         System.out.println(searchInsert(numbers, target));
     }
 
     private static int searchInsert(int[] nums, int target) {
-        if(nums.length == 0) {
+        if (nums.length == 0) {
             return -1;
         }
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] == target) {
+        int start = 0;
+        int end = nums.length - 1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] < target) {
+                start++;
+            } else {
+                end--;
+            }
+        }
+        return start;
+    }
+
+    private static int searchInsert1(int[] nums, int target) {
+        if (nums.length == 0) {
+            return -1;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
                 return i;
-            }else {
-                if(nums[i] > target) {
+            } else {
+                if (nums[i] > target) {
                     return i;
                 }
             }
