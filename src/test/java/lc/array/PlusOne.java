@@ -42,7 +42,7 @@ public class PlusOne {
     // The below code will fail with when the value exceeds the integer range.
     private static int[] plusOneIssue(int[] digits) {
         if (digits.length == 0) {
-            return new int[]{-1};
+            return new int[]{0, 0};
         }
         StringBuilder number = new StringBuilder();
         for (int digit : digits) {
@@ -59,7 +59,6 @@ public class PlusOne {
         int[] result = new int[count];
         for (int i = result.length - 1; i >= 0; i--) {
             result[i] = numberFromStr % 10;
-            ;
             numberFromStr /= 10;
         }
         return result;
