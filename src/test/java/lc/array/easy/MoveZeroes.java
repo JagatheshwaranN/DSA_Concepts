@@ -1,4 +1,4 @@
-package lc.array;
+package lc.array.easy;
 
 import java.util.Arrays;
 
