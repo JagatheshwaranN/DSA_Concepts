@@ -1,5 +1,6 @@
 package lc.array;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -32,17 +33,17 @@ public class ContainsDuplicate {
         System.out.println(containsDuplicate3(numbers));
     }
 
-    // Time Limit Exceeded
+    // Execution Time: 17ms
     public static boolean containsDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        for (int i = 0; i < nums.length - 1; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] == nums[j]) {
-                    return true;
-                }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if(map.containsKey(nums[i])){
+                return true;
             }
+            map.put(nums[i], i);
         }
         return false;
     }
