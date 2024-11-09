@@ -30,6 +30,7 @@ public class RotateImage {
             return;
         }
         int matrixLength = matrix.length;
+        // Step 1: Transpose the matrix
         for (int i = 0; i < matrixLength; i++) {
             for (int j = i; j < matrixLength; j++) {
                 int temp = matrix[i][j];
@@ -37,6 +38,7 @@ public class RotateImage {
                 matrix[j][i] = temp;
             }
         }
+        // Step 2: Reverse each row
         for (int i = 0; i < matrixLength; i++) {
             for (int j = 0; j < matrixLength / 2; j++) {
                 int temp = matrix[i][j];
