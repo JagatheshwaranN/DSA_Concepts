@@ -1,0 +1,43 @@
+Tree - Collection of Nodes and edges to form a hierarchical data structure.
+
+Terminologies
+=============
+1. Child - Direct Successor
+2. Parent - Direct Predecessor
+3. Root - A node with no parent
+4. Leaf - A node with no child [External Node]. Non Leaf Node[Internal Node]
+5. Sibling - Children of same parent
+6. Path - Sequence of consecutive edges between 2 nodes
+7. Ancestor - Any Predecessor node on path from root to that node
+8. Descendant - Any Successor node on a path from that node to a leaf node
+9. SubTree - Containing a node of tree and all its descendants
+10. Depth - No of edges in the path from root to the node
+11. Height - No of edges in the longest path from the node to the leaf
+12. Degree - No of children of a node
+
+Constraints
+===========
+If a tree has N nodes then it must have only N-1 edges.
+
+Binary Tree
+===========
+1. Nodes with utmost 2 children.
+2. For a Binary Tree, for ith level, maximum it can have 2^i nodes.
+3. Height of the tree = No of levels in the tree.
+
+Example, For a tree with height = 3 can contain how many nodes?
+if height = 3, => 1 + 2 + 4 + 8 = 15
+so, h^n = > 2^0+2^1+2^2+2^3+..+2^n [Its a Geometric Progression]
+Therefore, the formula, s = a(r^n - 1) / r - 1
+=> 1(2^h+1 - 1) / 2-1
+=> 2^h+1 - 1 [Maximum nodes of a binary tree of height 'H'.
+
+The minimum nodes in a binary tree of height H is H+1 nodes.
+
+
+
+
+
+
+
+
